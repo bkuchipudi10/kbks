@@ -1,0 +1,32 @@
+
+
+node {
+   stage('Gitclone'){
+     git credentialsId: '94acda46-ab19-4ec1-af3f-0efa1ad670c9', url: 'https://github.com/bkuchipudi10/kb-pipeline.git'
+	 
+	}
+    stage('Maven version'){
+	 sh"mvn --version"
+	 
+    } 
+    stage('java version'){
+	  sh"java -version"
+	  
+    }
+    stage('maven validate'){
+	  sh"mvn validate"
+	  
+    }
+    stage('maven compile'){
+	   sh"mvn compile"
+	  
+    }
+    stage('maven test'){
+	  sh"mvn test"
+	  
+    }
+	stage('maven package'){
+	  sh"mvn package"
+	  
+   }
+    
